@@ -6,6 +6,7 @@ import Products from "../Products/Products"
 import Orders from "../Orders/Orders"
 import Contact from "../Contact/Contact"
 import LoginPage from "../LoginPage/LoginPage";
+import RegisterPage from '../RegisterPage/RegisterPage'
 import Sneakers from "../ProductCategorys/Sneakers/Sneakers";
 import Bags from "../ProductCategorys/Bags/Bags";
 import Earphones from "../ProductCategorys/Earphones/Earphones";
@@ -75,6 +76,10 @@ const routes = createBrowserRouter([
             {
                 path: '/login',
                 element: <LoginPage />
+            },
+            {
+                path: '/register',
+                element: <RegisterPage />
             }
 
         ]

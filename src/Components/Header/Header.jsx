@@ -1,9 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../Firebase/UserContext";
 
 const Header = () => {
+  const userData = useContext(AuthContext);
+  const { user, handleLogOut } = userData;
+  console.log(user);
+
   return (
     <div className="bg-[#192746]">
       <div className="navbar md:w-[80%] mx-auto font-semibold text-amber-500">
@@ -25,7 +30,7 @@ const Header = () => {
                 />
               </svg>
             </label>
-            <ul className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-yellow-200 rounded-box w-52">
+            <ul className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52">
               <li>
                 <NavLink to="/home">Home</NavLink>
               </li>
@@ -37,6 +42,32 @@ const Header = () => {
               </li>
               <li>
                 <NavLink to="/contact">Contact</NavLink>
+              </li>
+              <li>
+                {user?.uid ? (
+                  <>
+                    <span className="text-purple-600">{user.email}</span>
+                    <NavLink className="bg-white">
+                      <button
+                        onClick={handleLogOut}
+                        className="btn btn-accent md:hidden"
+                      >
+                        Log Out
+                      </button>
+                    </NavLink>
+                  </>
+                ) : (
+                  <>
+                    <NavLink to="/login">
+                      <button className="btn btn-ghost md:hidden">Login</button>
+                    </NavLink>
+                    <NavLink to="/register">
+                      <button className="btn btn-accent text-white md:hidden">
+                        Register
+                      </button>
+                    </NavLink>
+                  </>
+                )}
               </li>
             </ul>
           </div>
@@ -67,6 +98,30 @@ const Header = () => {
               icon={solid("cart-shopping")}
             />
           </NavLink>
+          {user?.uid ? (
+            <>
+              <NavLink>
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-ghost hidden md:block"
+                >
+                  Log Out
+                </button>
+              </NavLink>
+              <span className="text-white hidden md:block">{user.email}</span>
+            </>
+          ) : (
+            <>
+              <NavLink to="/login">
+                <button className="btn btn-ghost hidden md:block">Login</button>
+              </NavLink>
+              <NavLink to="/register">
+                <button className="btn btn-accent text-white hidden md:block">
+                  Register
+                </button>
+              </NavLink>
+            </>
+          )}
         </div>
       </div>
     </div>

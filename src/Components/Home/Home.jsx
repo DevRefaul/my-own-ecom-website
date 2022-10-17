@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Hero from "../Hero/Hero";
 import { ProductContext } from "../Root/Root";
 import { TeamMembers } from "../TeamMembers/TeamMembers";
@@ -46,6 +48,7 @@ const Home = () => {
 
   return (
     <div>
+      <ToastContainer position="top-center" autoClose={1000} />
       <div>
         {/* hero section */}
         <Hero />

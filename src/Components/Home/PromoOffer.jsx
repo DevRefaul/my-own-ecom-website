@@ -17,7 +17,7 @@ const PromoOffer = () => {
               <span className="font-bold text-lg">Refaul</span>
             </div>
             <Link
-              to="/"
+              to="/products"
               rel="noreferrer noopener"
               className="px-5 mt-4 lg:mt-0 py-3 rounded-md border-2 block bg-purple-50 hover:bg-purple-300 hover:text-white dark:text-gray-900 dark:border-gray-400 font-medium"
             >

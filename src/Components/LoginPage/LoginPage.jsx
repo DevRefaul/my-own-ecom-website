@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   return (
-    <div className="flex justify-center items-center h-[100vh] bg-yellow-50">
+    <div className="flex justify-center items-center h-[100vh] bg-yellow-50 p-4">
       <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 bg-gray-900 text-gray-100">
         <h2 className="mb-3 text-3xl font-semibold text-center">
           Login to your account
         </h2>
         <p className="text-sm text-center text-gray-400">
-          Dont have account?
+          Don't have an account?
           <Link
-            to="/"
+            to="/register"
             rel="noopener noreferrer"
             className="focus:underline hover:underline"
           >
@@ -66,13 +66,13 @@ const LoginPage = () => {
           <hr className="w-full text-gray-400" />
         </div>
         <form
-          novalidate=""
+          noValidate=""
           action=""
           className="space-y-8 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-4">
             <div className="space-y-2">
-              <label for="email" className="block text-sm">
+              <label htmlFor="email" className="block text-sm">
                 Email address
               </label>
               <input
@@ -85,16 +85,9 @@ const LoginPage = () => {
             </div>
             <div className="space-y-2">
               <div className="flex justify-between">
-                <label for="password" className="text-sm">
+                <label htmlFor="password" className="text-sm">
                   Password
                 </label>
-                <Link
-                  rel="noopener noreferrer"
-                  to="/"
-                  className="text-xs hover:underline text-gray-400"
-                >
-                  Forgot password?
-                </Link>
               </div>
               <input
                 type="password"
@@ -103,6 +96,13 @@ const LoginPage = () => {
                 placeholder="*****"
                 className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400"
               />
+              <Link
+                rel="noopener noreferrer"
+                to="/"
+                className="text-xs hover:underline text-gray-400"
+              >
+                Forgot password?
+              </Link>
             </div>
           </div>
           <button
